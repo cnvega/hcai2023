@@ -11,8 +11,15 @@ Año: 2023
 
 Semestre: II
 
-### ./Clases/
+### `./Clases/`
 
 En este directorio se encuentran las slides/diapositivas/filminas
 mostradas por el profesor durante las clases.
+
+### `./Repaso/Bash/` y `./Repaso/Python`
+
+En estos directorios encontrarán material utilizado durante el curso
+*Métodos Numéricos para Astronomía*, dictado el primer semestre de 2023.
+Pueden utilizarlo como referencia general para repasar conceptos básicos
+tanto de Bash como de Python.
 
