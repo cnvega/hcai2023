@@ -11,3 +11,8 @@ Año: 2023
 
 Semestre: II
 
+### ./Clases/
+
+En este directorio se encuentran las slides/diapositivas/filminas
+mostradas por el profesor durante las clases.
+
