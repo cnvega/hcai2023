@@ -1,0 +1,3 @@
+Para compilar el codigo en c:
+
+gcc holamundo.c
