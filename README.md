@@ -16,6 +16,10 @@ Semestre: II
 En este directorio se encuentran las slides/diapositivas/filminas
 mostradas por el profesor durante las clases.
 
+### `./Codes/`
+En este directorio se encuentran los códigos de ejemplo desarrollados
+por el profesor durante las clases.
+
 ### `./Repaso/Bash/` y `./Repaso/Python`
 
 En estos directorios encontrarán material utilizado durante el curso
