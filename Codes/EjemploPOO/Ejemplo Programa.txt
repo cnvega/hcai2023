@@ -1,0 +1,26 @@
+### Este es archivo de texto que describe el 
+#   ejercicio a realizar en clases con UML y Python.
+
+Diseñemos y programemos un código para simular un supermercado.
+Esta simulación tiene una alta complejidad, ya que debe considerar: 
+- Flujo de gente que compra
+- Tiempo de búsqueda de productos
+- Cajas que atienden
+- Filas de cajas
+- Validación y empaque de ítem
+
+Para desarrollar este código, nos centraremos en resolver
+la variable temporal como objetivo primario. Es decir, 
+crearemos objetos que evoluciones siguiendo un dt definido por 
+la clase de más alto nivel, y haremos métodos que representen
+las acciones de los objetos transcurrido esos dt.
+
+- Para simplificar, usaremos los números enteros como unidad 
+de tiempo, de modo que dt = 1 (aunque lo escribiremos de forma 
+medianamente genérica solo para fines ilustrativos de la 
+complejidad inherente a trabajar con tiempo.
+
+Objetivos del código:
+- Saber cuánto tiempo espera una persona en caja
+- Cuántas personas en espera hay por caja (el máximo)
+
