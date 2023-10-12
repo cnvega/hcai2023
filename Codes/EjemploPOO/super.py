@@ -58,6 +58,15 @@ class Caja():
          # continuamos:
          if (self.cajero.validationTime <= 0):
             kick_client()
+         
+         dt = tleft
+
+   def get_cola(self):
+      """Método que retorna el número de items que hay en cola"""
+      itot = self.cajero.items
+      for c in self.cola:
+         itot += c.items
+      return itot
        
 
 class Supermarket():
@@ -84,13 +93,51 @@ class Supermarket():
       #TODO: Completar forma de agregar clientes entre tnow y tnow+dt
       #      -> clientes a buscar items.
 
-   def _clientes_buscar(self, dt):
-      """Método que avanza en el proceso de búsqueda de ítems de clientes"""
+   def buscar_caja(self):
+      """Método que retorna la caja más vacía en el momento."""
+      minitems = self.cajas[0].get_cola()
+      mincaja = self.cajas[0]
+      for caja in self.cajas:
+         tmp = caja.get_cola()
+         if (tmp < minitems):
+            minitems = tmp
+            mincaja = caja
+      return mincaja
 
 
+   def _asignar_caja(self, cind=-1):
+      """Método para asignar una caja disponible a un cliente"""
+      # Si no se ingresa el cliente, selecciona todos lo que terminaron
+      # su búsqueda:
+      if (-1 == cind):
+         cterm = []
+         for i, c in enumerate(self.clientes_buscando):
+            if (c.searchTime <= 0):
+               cterm.append(c)
+      else:
+         if not type(cind) == list:
+            cind = [cind]
+         for i in cind:
+            cterm.append(self.clientes_buscando[i])
+
+      for c in cterm:
+         # sacamos de la lista los que terminaron:
+         self.clientes_buscando.remove(c)
+         # asignamos cajas:
+         self.buscar_caja().add_cliente(c)
 
 
-
-
-
+   def run(self, dt):
+      """Método que avanza en el proceso de búsqueda y compra por dt"""
+      
+      while (dt > 0):
+         # Recorremos todos los clientes para que busquen sus items en dt=1:
+         for cliente in self.clientes_buscando:
+            cliente.buscar_items(1)
+         # En el mismo tiempo, las cajas procesan items:
+         for caja in self.cajas:
+            caja.trabajar(1)
+         # Si alguno terminó, asignamos caja:
+         self._asignar_caja()
+         dt -= 1
 

@@ -12,6 +12,7 @@ class Validador(Persona):
    """Esta es una clase para representar personas que validen"""
 
    def __init__(self, fac=5):
+      super().__init__()
       # Este es el factor de conversion items a tiempo de validar
       self.validfactor = fac
       self.validationTime = 0
@@ -39,6 +40,7 @@ class Cliente(Persona):
    """Esta es una clase para representar clientes en el super"""
    
    def __init__(self, buscfactor=120):
+      super().__init__()
       # Esta estructura resultó igual que la de Validador (falló DRY)
       self.buscfactor = buscfactor
       self.searchTime = 0
