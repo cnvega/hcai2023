@@ -2,13 +2,20 @@
 
 class Persona():
    """Esta es una clase generica para almacenar personas"""
+   # Incluimos un contador de instancias creadas para identificar clientes. 
+   numpersonas = 0
 
    def __init__(self):
       self.items = 0  # "canasta" de items
       self.tlocal = 0 # tiempo total en el super
+      Persona.numpersonas += 1
+      self.identificador = Persona.numpersonas
 
    def __str__(self):
-      return "Items: {:d}; tlocal: {:d}".format(self.items, self.tlocal)
+      return "ID={:d}, Items={:d}, tlocal={:d}".format(self.identificador, 
+                                                          self.items, self.tlocal)
+   def __repr__(self):
+      return "Persona("+self.__str__()+")"
 
 
 class Validador(Persona):
