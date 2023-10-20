@@ -7,6 +7,9 @@ class Persona():
       self.items = 0  # "canasta" de items
       self.tlocal = 0 # tiempo total en el super
 
+   def __str__(self):
+      return "Items: {:d}; tlocal: {:d}".format(self.items, self.tlocal)
+
 
 class Validador(Persona):
    """Esta es una clase para representar personas que validen"""
